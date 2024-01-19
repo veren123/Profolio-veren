@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VerenSearch</title>
+    <link rel="shortcut icon" type="x-icon" href="Picsart_23-12-28_13-56-13-564.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            opacity: 0; /* Inisialisasi dengan opacity 0 */
+            animation: fadeIn 2s forwards; /* Animasi fadeIn selama 2 detik */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0; /* Mulai dari opacity 0 */
+            }
+            to {
+                opacity: 1; /* Selesai dengan opacity 1 */
+            }
+        }
+
+        .logo-text {
+            font-size: 24px;
+            margin: 0;
+            text-transform: uppercase;
+            color: #333;
+            letter-spacing: 2px;
+        }
+
+        .search-box {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .search-input {
+            padding: 10px;
+            width: 100%;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .search-button {
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            outline: none;
+            transition: background-color 0.3s;
+        }
+
+        .search-button:hover {
+            background-color: #0056b3;
+        }
+
+        .date-time {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #555;
+            font-style: italic;
+        }
+
+        img {
+            width: 100%; /* Pastikan gambar mengisi lebar maksimum */
+            max-width: 600px;
+            height: auto;
+            display: block; /* Agar gambar berada di tengah */
+            margin: 20px auto; /* Margin untuk estetika */
+            animation: fadeOut 2s forwards 4s; /* Animasi fadeOut selama 2 detik, dimulai 4 detik setelah halaman dimuat */
+        }
+        
+        img[src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"]{
+            display: none;
+        }
+        @keyframes fadeOut {
+            from {
+                opacity: 1; /* Mulai dari opacity 1 */
+            }
+            to {
+                opacity: 0; /* Selesai dengan opacity 0 */
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <title>VerenSearch</title>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1 class="logo-text">VerenSearch</h1>
+        </div>
+        <form class="search-box" action="https://www.google.com/search" method="GET" target="_blank">
+            <input type="text" class="search-input" name="q" placeholder="Cari...">
+            <button type="submit" class="search-button">Cari</button>
+        </form>
+        <div class="date-time" id="date-time"></div>
+    </div>
+
+    <script>
+        function updateDateTime() {
+            const dateTimeElement = document.getElementById('date-time');
+            const now = new Date();
+            const options = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric',
+                second: 'numeric',
+                timeZone: 'Asia/Jakarta'
+            };
+            const formattedDateTime = new Intl.DateTimeFormat('id-ID', options).format(now);
+            dateTimeElement.textContent = formattedDateTime;
+        }
+
+        // Update time every second
+        setInterval(updateDateTime, 1000);
+
+        // Initial update
+        updateDateTime();
+    </script>
+</body>
+</html>

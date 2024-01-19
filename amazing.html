@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="x-icon" href="A.png">
+    <title>Amazing.com</title>
+</head>
+<style>
+    body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+header {
+  background-color:black;
+  padding: 10px 20px;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+}
+
+.search-language {
+  display: flex;
+  gap: 10px;
+}
+
+input[type="text"] {
+  padding: 5px;
+  border: none;
+}
+
+.cart-icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Tambahkan gaya untuk mode terjemahan */
+.translation-mode {
+  display: flex;
+  gap: 10px;
+  margin-left: auto;
+}
+
+/* Gaya tambahan untuk elemen terjemahan */
+#language-mode {
+  padding: 5px;
+}
+
+
+  /* Tambahkan gaya untuk card */
+  .cards-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        justify-content: center;
+        margin-bottom: 60px;
+    }
+
+    .card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+    }
+
+    /* Tambahkan gaya untuk gambar dalam card */
+    .card img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+
+    footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  left: 0; /* Tambahkan properti ini */
+    right: 0; /* Tambahkan properti ini */
+}
+
+.card-buttons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.buy-now-button,
+.add-to-cart-button {
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-to-cart-button {
+    background-color: #27ae60;
+}
+
+img[src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"]{
+    display: none;
+}
+@media screen and (max-width: 768px) {
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background-color: black;
+            z-index: 1;
+        }
+
+        .nav-links.show {
+            display: flex;
+        }
+        
+        .nav-links a {
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .navbar {
+            position: relative;
+        }
+
+        .cart-icon {
+            margin-left: auto;
+        }
+    }
+</style>
+<body>
+    <header>
+        <nav class="navbar">
+          <div class="logo">Amazing</div>
+          <ul class="nav-links">
+            <li><a href="#">Produk</a></li>
+            <li><a href="#">Tentang Kami</a></li>
+          </ul>
+          <div class="search-language">
+            <input type="text" id="search" placeholder="Cari...">
+            <select id="language-mode">
+              <option value="id">EN</option>
+              <option value="en">ID</option>
+            </select>
+          </div>
+          <div class="cart-icon">🛒</div>
+        </nav>
+      </header>
+
+      <div class="cards-container">
+        <!-- Card dengan konten Gaming Accessories -->
+        <div class="card">
+            <img src="barang amazing 1.jpg" alt="PS4 PRO">
+            <h1>PS4 PRO</h1>
+            <p>Rp.5.277.000</p>
+            
+              <button class="buy-now-button">Beli Sekarang</button>
+              <button class="add-to-cart-button">Tambah ke Keranjang</button>
+            <!-- Isi card dapat ditambahkan sesuai kebutuhan -->
+        </div>
+
+        <!-- Card dengan konten PC -->
+        <div class="card">
+            <img src="amazing item 2.png" alt="ps4 slim">
+            <h1>PS4 slim</h1>
+            <p>Rp.4.950.000</p>
+           
+              <button class="buy-now-button">Beli Sekarang</button>
+              <button class="add-to-cart-button">Tambah ke Keranjang</button>
+            <!-- Isi card dapat ditambahkan sesuai kebutuhan -->
+        </div>
+
+        <div class="card">
+            <img src="barang amazing 2.jpg" alt="PS2 fat">
+            <h1>PS3 fat</h1>
+            <p>Rp.2.250.000</p>
+              <button class="buy-now-button">Beli Sekarang</button>
+              <button class="add-to-cart-button">Tambah ke Keranjang</button>
+        </div>
+
+        <div class="card">
+            <img src="barang amazing 3.jpg" alt="PS3 SLIM">
+            <h1>PS3 SLIM</h1>
+            <p>Rp.2.350.000</p>
+              <button class="buy-now-button">Beli Sekarang</button>
+              <button class="add-to-cart-button">Tambah ke Keranjang</button>
+        </div>
+
+        <div class="card">
+            <img src="ps2 slim.jpg" alt="PS2 SLIM">
+            <h1>PS2 SLIM</h1>
+            <p>Rp.990.000</p>
+              <button class="buy-now-button">Beli Sekarang</button>
+              <button class="add-to-cart-button">Tambah ke Keranjang</button>
+        </div>
+
+        <div class="card">
+            <img src="ps2.jpg" alt="PS2 FAT">
+            <h1>PS2 FAT</h1>
+            <p>Rp.1.300.000</p>
+              <button class="buy-now-button">Beli Sekarang</button>
+              <button class="add-to-cart-button">Tambah ke Keranjang</button>
+        </div>
+          
+
+        <footer>
+            <p>&copy; 2024 Amazing.com. Hak Cipta Dilindungi.</p>
+          </footer>
+
+        <script>
+  const languageModeSelect = document.getElementById('language-mode');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  languageModeSelect.addEventListener('change', function() {
+    const selectedLanguage = languageModeSelect.value;
+    translateContent(selectedLanguage);
+  });
+
+  function translateContent(language) {
+    // Tambahkan kondisi untuk setiap bagian yang ingin diterjemahkan
+    navLinks.forEach(link => {
+      if (language === 'id') {
+        switch (link.innerHTML) {
+          case 'Beranda':
+            link.innerHTML = 'Home';
+            break;
+          case 'Produk':
+            link.innerHTML = 'Products';
+            break;
+          case 'Tentang Kami':
+            link.innerHTML = 'About Us';
+            break;
+          case 'Kontak':
+            link.innerHTML = 'Contact';
+            break;
+        }
+      } else if (language === 'en') {
+        switch (link.innerHTML) {
+          case 'Home':
+            link.innerHTML = 'Beranda';
+            break;
+          case 'Products':
+            link.innerHTML = 'Produk';
+            break;
+          case 'About Us':
+            link.innerHTML = 'Tentang Kami';
+            break;
+          case 'Contact':
+            link.innerHTML = 'Kontak';
+            break;
+        }
+      }
+    });
+  }
+
+   // Fungsi untuk memeriksa pencarian dan menampilkan pesan "Tidak Ditemukan"
+   function checkSearch() {
+            const searchValue = searchInput.value.toLowerCase();
+            const laptopKeywords = ['laptop', 'notebook']; // Ganti dengan kata kunci yang sesuai
+
+            if (laptopKeywords.some(keyword => searchValue.includes(keyword))) {
+                // Jika kata kunci laptop ditemukan
+                notFoundMessage.innerText = '';
+                laptopCard.style.display = 'block';
+            } else {
+                // Jika kata kunci laptop tidak ditemukan
+                notFoundMessage.innerText = 'Pencarian tidak ditemukan';
+                laptopCard.style.display = 'none';
+            }
+        }
+</script>
+</body>
+</html>

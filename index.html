@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+     <link rel="shortcut icon" type="x-icon" href="v.png">
+    <title>link tree veren</title>
+</head>
+<style>
+ body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #232526, #414345); /* Gradien warna latar belakang gelap ke abu-abu tua */
+    color: #fff;
+    animation: changeBackground 10s infinite linear; /* Animasi perubahan warna latar belakang */
+}
+
+@keyframes changeBackground {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 100%;
+    }
+}
+
+.link-tree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.profile {
+    text-align: center;
+}
+
+.profile img {
+    width: 120px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile h1 {
+    margin-top: 10px;
+    font-size: 28px;
+    color: #fff;
+}
+
+.links-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.link {
+    margin: 10px;
+    padding: 15px;
+    background-color: #4CAF50; /* Warna hijau */
+    border-radius: 20px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 200px;
+}
+
+.link a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.link:hover {
+    background-color: #45a049; /* Warna hijau tua ketika dihover */
+}
+
+.icon {
+    margin-right: 8px;
+    font-size: 20px;
+}
+
+img[src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"]{
+    display: none;
+}
+
+</style>
+<body>
+    <div class="link-tree">
+        <div class="profile">
+            <img src="IMG_20231229_094325.jpg" alt="Profil Anda">
+            <h1>Veren</h1>
+        </div>
+        <div class="links-container">
+            <div class="link">
+                <a href="Lobby.html">
+                    <span class="icon">🏠</span> profolio
+                </a>
+            </div>
+            <div class="link">
+                <a href="amazing.html">
+                    <span class="icon"></span> Amazing.com
+                </a>
+            </div>
+             <div class="link">
+                <a href="https://wa.me/+62082240510372" target="_blank"> 
+                    <span class="icon">📞</span> Kontak
+                </a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

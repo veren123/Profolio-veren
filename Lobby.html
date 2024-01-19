@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Veren</title>
+    <link rel="shortcut icon" type="x-icon" href="Picsart_23-12-19_14-26-31-527.jpg">
+</head>
+<style>
+    body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #4B0082; /* Warna ungu tua (contoh warna mewah) */
+    color: #FFD700; /* Warna kuning keemasan untuk teks (contoh warna mewah) */
+    text-align: center;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#Jam {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Menambahkan bayangan agar terlihat mewah */
+}
+
+.digital-clock-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+    color: #FFD700; /* Warna kuning keemasan untuk teks (sesuaikan dengan warna header) */
+}
+
+.digital-clock {
+    display: inline-block;
+    background-color: #444;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: gold;
+    margin: 10px;
+}
+
+.logo img {
+    max-width: 100px;
+}
+
+h1, p {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+section {
+    padding: 2em;
+}
+
+#about {
+    background-color: #f4f4f4;
+}
+
+#portfolio {
+    padding: 2em;
+    background-color: #e0e0e0;
+}
+
+.project {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.project img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.project h1 {
+    margin-top: 10px;
+    font-size: 1.5em;
+}
+
+.project p {
+    font-size: 1em;
+    color: #555;
+}
+
+.profile-info {
+    text-align: center;
+}
+
+.hobby-progress {
+    margin-bottom: 20px; /* Tambahkan margin bottom untuk memberi jarak antar pasangan elemen */
+}
+
+.profile-info img {
+    border-radius: 50%;
+    max-width: 150px;
+}
+
+.progress-bar {
+    background-color: #666;
+    height: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress {
+    height: 100%;
+    background-color: #4caf50;
+    transition: width 1s ease;
+}
+
+
+
+#contact {
+    padding: 2em;
+    background-color: #ccc;
+}
+
+.contact-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.phone-link {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-buttons {
+    text-align: center;
+}
+
+.phone-button, .email-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 10px;
+    text-decoration: none;
+    color: white;
+    background-color: #333;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.phone-button:hover, .email-button:hover {
+    background-color: #555;
+}
+
+img[src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"]{
+    display: none;
+}
+
+
+
+/* Penyesuaian untuk layar sempit */
+@media only screen and (max-width: 600px) {
+    .phone-button, .email-button {
+        margin: 10px 0; /* Tambahkan margin atas dan bawah untuk memberikan jarak pada layar sempit */
+    }
+}
+
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.footer-info p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+    header {
+        flex-direction: column;
+    }
+
+    .header-content {
+        margin-top: 10px;
+    }
+
+    nav {
+        margin-top: 10px;
+    }
+}
+
+</style>
+<body>
+    <header>
+        <div class="logo">
+            <img src="Picsart_23-12-19_14-26-31-527.jpg" alt="logo veren">
+        </div>
+        <div class="header-content">
+            <h1><b>Veren</b></h1>
+            <p>Web Developer</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#portfolio">projek-projek</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="cari.html">VerenSearch</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="profile-info">
+        <img src="IMG_20231229_094325.jpg" alt="Profile veren">
+        <h2>Veren</h2>
+    
+        <div class="hobby-progress">
+            <p>Hobby: Web Development</p>
+            <div class="progress-bar" style="width: 80%;">
+                <div class="progress"></div>
+            </div>
+            <p>80%</p>
+        </div>
+    
+        <div class="hobby-progress">
+            <p>Main Game</p>
+            <div class="progress-bar" style="width: 10%;">
+                <div class="progress"></div>
+            </div>
+            <p>10%</p>
+        </div>
+
+        <div class="hobby-progress">
+            <p>Mempelajari tentang dunia digital</p>
+            <div class="progress-bar" style="width: 98%;">
+                <div class="progress"></div>
+            </div>
+            <p>98%</p>
+        </div>
+    </div>
+    
+   
+    <section id="portfolio">
+        <h2>Proyek website yang telah selesai.</h2>
+    
+        <div class="project">
+            <img src="Screenshot (26).png" alt="My blog" width="600px">
+            <h1>Blog pribadi</h1>
+        </div>
+    
+        <div class="project">
+            <img src="Screenshot (28).png" alt="Projek merubah biner" width="600px">
+            <h1>alat yang bisa Konverter Biner ke desimal</h1>
+        </div>
+    
+        <div class="project">
+            <img src="Screenshot (29).png" alt="Project 3" width="600px">
+            <h1>Toko online digital</h1>
+        </div>
+
+        <div class="project">
+            <img src="Screenshot (30).png" alt="Project 3" width="600px">
+            <h1>Game ular sederhana</h1>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-info">
+        </div>
+        <div class="contact-buttons">
+            <a href="https://wa.me/6282240510372" class="phone-button">nomer wa saya</a>
+        </section>
+
+        <section id="Jam">
+            <div class="digital-clock-container">
+                <p id="clock" class="digital-clock">Jam Digital Portfolio Veren</p>
+            </div>
+        </section>
+
+
+        
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <p>&copy; 2023 Veren. Hak Cipta Dilindungi Undang-Undang. Semua Hak Dilindungi dan Tidak Boleh Direproduksi Tanpa Izin.</p>
+            </div>
+        </div>
+    </footer>
+    
+
+  
+    <script>
+    function updateClock() {
+        var now = new Date();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+
+        // Tambahkan nol di depan angka jika kurang dari 10
+        hours = hours < 10 ? '0' + hours : hours;
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+
+        var clockDisplay = hours + ':' + minutes + ':' + seconds;
+        document.getElementById('clock').textContent = clockDisplay;
+    }
+
+    // Panggil fungsi updateClock setiap detik
+    setInterval(updateClock, 1000);
+
+    // Panggil fungsi untuk menampilkan waktu awal
+    updateClock();
+
+</script>
+</body>
+</html>
