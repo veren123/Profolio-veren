@@ -202,17 +202,17 @@
         <div class="gallery-item">
             <img src="coblos.png" alt="prabowo gibran" />
             <p>prabowo gibran</p>
-            <button class="button" onclick="pilihPresiden('Prabowo Gibran')">Pilih lah</button>
+            <button class="button">Pilih lah</button>
         </div>
         <div class="gallery-item">
             <img src="gambar.png" alt="banteng" />
             <p>banteng</p>
-            <button class="button" onclick="pilihPresiden('Banteng')">Pilih lah</button>
+            <button class="button">Pilih lah</button>
         </div>
         <div class="gallery-item">
             <img src="nasdem.jpg" alt="nasdem" />
             <p>nasdem</p>
-            <button class="button" onclick="pilihPresiden('Nasdem')">Pilih lah</button>
+            <button class="button">Pilih lah</button>
         </div>
     </div>
 
@@ -227,39 +227,5 @@
       <div class="footer">
         <p>&copy; 2024 coblos-presiden. All Rights Reserved.</p>
     </div>
-    <script>
-      function pilihPresiden(namaPresiden) {
-    var excelData = {
-        'Nama Presiden': namaPresiden,
-        'Waktu Pemilihan': new Date().toLocaleString()
-    };
-
-    var blob = new Blob([convertToCSV(excelData)], { type: 'text/csv' });
-
-    var link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = 'data_presiden.csv';
-    link.click();
-}
-
-function convertToCSV(objArray) {
-    var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
-    var str = '';
-
-    for (var i = 0; i < array.length; i++) {
-        var line = '';
-        for (var index in array[i]) {
-            if (line != '') line += ',';
-
-            line += array[i][index];
-        }
-
-        str += line + '\r\n';
-    }
-
-    return str;
-}
-
-    </script>
   </body>
 </html>
