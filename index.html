@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profolio veren</title>
+    <link rel="icon" href="v.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: #fff;
+}
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    transition: background 0.3s ease;
+}
+
+.header.scrolled {
+    background: rgba(0, 0, 0, 0.95);
+}
+
+.logo p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00d4ff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    position: relative;
+    padding: 10px;
+}
+
+.nav ul li a:hover {
+    color: #00d4ff;
+    transform: translateY(-3px);
+}
+
+.nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background: #00d4ff;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: right;
+}
+
+.nav ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.burger-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.burger-icon .line {
+    width: 25px;
+    height: 3px;
+    background-color: #00d4ff;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 20px 0;
+    }
+
+    .nav.active {
+        display: flex;
+    }
+
+    .burger-icon {
+        display: flex;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav ul li a {
+        width: 100%;
+        text-align: center;
+        padding: 15px 0;
+    }
+}
+
+/* bagian untuk homepage elementnya */
+.homepage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    margin: 20px;
+    color: #00e6e6;
+    position: relative;
+    overflow: hidden;
+}
+
+.homepage::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, transparent, #00e6e6, transparent);
+    opacity: 0.1;
+    animation: rotate-bg 20s linear infinite;
+}
+
+@keyframes rotate-bg {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.homepage img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #00e6e6;
+    box-shadow: 0 0 20px #00e6e6, 0 0 60px #00e6e6;
+    margin-right: 40px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.homepage img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px #00e6e6, 0 0 80px #00e6e6;
+}
+
+.disamping-kanan {
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.disamping-kanan p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #00e6e6;
+    text-shadow: 0 0 5px #00e6e6, 0 0 10px #00e6e6;
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.disamping-kanan p:hover {
+    transform: translateY(-5px);
+    text-shadow: 0 0 10px #00e6e6, 0 0 20px #00e6e6, 0 0 40px #00e6e6;
+}
+
+@media (max-width: 768px) {
+    .homepage {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .homepage img {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .disamping-kanan {
+        max-width: 90%;
+    }
+}
+
+
+/* bagian untuk skil */
+.skill {
+    text-align: center;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    margin: 20px;
+    color: #fff;
+}
+
+.skill .ditengah p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00e6e6;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+}
+
+.skill-list {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Ruang antar skill-item */
+    flex-wrap: wrap;
+}
+
+/* Skill Item */
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 120px; /* Lebar tetap pada layar besar */
+    opacity: 0; /* Mengatur opacity ke 0 untuk animasi masuk */
+    transform: translateY(20px); /* Mengatur posisi awal untuk animasi masuk */
+    animation: fadeInUp 0.5s forwards; /* Memanggil animasi */
+}
+
+/* Animasi Delay */
+.skill-item:nth-child(1) { animation-delay: 0.1s; }
+.skill-item:nth-child(2) { animation-delay: 0.2s; }
+.skill-item:nth-child(3) { animation-delay: 0.3s; }
+
+/* Keyframes untuk Animasi */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efek Hover */
+.skill-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.skill-item i {
+    font-size: 40px;
+    color: #00e6e6;
+    margin-bottom: 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover pada Ikon */
+.skill-item i:hover {
+    color: #00d4ff;
+    transform: scale(1.2);
+}
+
+.skill-item p {
+    font-size: 16px;
+    color: #fff;
+    text-shadow: 0 0 5px #00e6e6;
+    margin-top: 5px;
+    transition: text-shadow 0.3s ease;
+}
+
+/* Hover pada Teks */
+.skill-item:hover p {
+    text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff;
+}
+
+/* Media Query untuk Responsivitas */
+@media (max-width: 768px) {
+    .skill {
+        padding: 20px; /* Mengurangi padding pada layar kecil */
+    }
+
+    .skill-list {
+        flex-direction: column; /* Mengubah menjadi kolom */
+        align-items: center; /* Memusatkan skill-item */
+    }
+
+    .skill-item {
+        width: 80%; /* Lebar skill-item lebih besar pada layar kecil */
+        max-width: 300px; /* Memastikan maksimal lebar */
+        margin-bottom: 20px; /* Ruang antar skill-item */
+        padding: 15px; /* Mengurangi padding untuk ruang lebih baik */
+    }
+
+    .skill-item i {
+        font-size: 30px; /* Ukuran ikon lebih kecil pada layar kecil */
+    }
+
+    .skill .ditengah p {
+        font-size: 20px; /* Ukuran teks judul lebih kecil */
+    }
+}
+
+/* bagian untuk sertifikat */
+/* Bagian untuk Sertifikat */
+.sertifikat {
+    text-align: center;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    margin: 20px;
+    color: #fff;
+}
+
+.sertifikat .ditengah p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00d4ff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+}
+
+.sertifikat-container {
+    position: relative; /* Memungkinkan efek sebelum */
+    overflow: hidden; /* Menghindari overflow */
+    border-radius: 15px; /* Menambahkan sudut melingkar */
+}
+
+.sertifikat-image {
+    width: 100%;
+    height: auto; /* Tinggi otomatis untuk menjaga rasio */
+    border-radius: 15px; /* Menambahkan sudut melingkar pada gambar */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease; /* Transisi saat hover */
+}
+
+.sertifikat-image:hover {
+    transform: scale(1.05); /* Zoom gambar saat hover */
+}
+
+/* Media Query untuk Responsivitas */
+@media (max-width: 768px) {
+    .sertifikat {
+        padding: 20px; /* Mengurangi padding pada layar kecil */
+    }
+
+    .sertifikat .ditengah p {
+        font-size: 20px; /* Ukuran teks judul lebih kecil */
+    }
+}
+
+/* bagian untuk profile */
+/* Bagian untuk Projek */
+.projek {
+    text-align: center;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    margin: 20px;
+    color: #fff;
+}
+
+.projek .bagiantengah p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00d4ff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+}
+
+.projek-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px; /* Jarak antar item */
+}
+
+.projek-item {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Memungkinkan efek sebelum */
+}
+
+.projek-item:hover {
+    transform: translateY(-5px); /* Efek naik pada hover */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.projek-image {
+    width: 100%;
+    height: 150px; /* Tinggi tetap untuk gambar */
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.projek-image:hover {
+    transform: scale(1.1); /* Zoom gambar saat hover */
+}
+
+.projek-item p {
+    padding: 15px;
+    font-size: 16px;
+    color: #fff;
+    text-shadow: 0 0 5px #00e6e6;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .projek-container {
+        grid-template-columns: 1fr; /* Mengubah menjadi kolom pada layar kecil */
+    }
+}
+
+</style>
+<body>
+    <div class="header">
+        <div class="logo">
+            <p>Profolio Veren</p>
+        </div>
+        <div class="burger-icon" onclick="toggleMenu()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="mtk.html">Tugas MTK</a></li>
+                <li><a href="#pada">certifikat</a></li>
+                <li><a href="#skil">Skill</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- bagian home page -->
+     <div class="homepage">
+        <img src="foto veren3.png" alt="Foto profil developer">
+        <div class="disamping-kanan">
+            <p>nama : veren</p>
+            <p>Saya adalah siswa kelas IX A di SMP Angkasa Adisutjipto sekaligus seorang Front-End Developer. 
+                Selain belajar di sekolah, saya juga menekuni dunia pengembangan web, khususnya di bidang front-end. 
+                Saya senang membuat tampilan antarmuka yang menarik, responsif, dan mudah digunakan. 
+                Melalui portofolio ini, saya ingin berbagi berbagai proyek yang telah saya kerjakan, serta prestasi dan keterampilan yang saya peroleh selama ini. 
+                Semoga karya-karya saya dapat memberikan inspirasi dan bermanfaat bagi banyak orang. Terima kasih telah berkunjung!</p>
+        </div>
+     
+     </div>
+    
+
+     <!-- bagian untuk skill -->
+     <div class="skill" id="skil">
+        <div class="ditengah">
+            <p>Skill</p>
+        </div>
+        <div class="skill-list">
+            <div class="skill-item">
+                <i class="fab fa-html5"></i>
+                <p>HTML</p>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-css3-alt"></i>
+                <p>CSS</p>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-bootstrap"></i>
+                <p>Bootstrap</p>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- bagian sertifikat -->
+    <div class="sertifikat" id="pada">
+        <div class="ditengah">
+            <p>Sertifikat</p>
+        </div>
+        <div class="sertifikat-container">
+            <img src="IMG_20240803_215452.jpg" alt="sertifikat coding front end" class="sertifikat-image">
+        </div>
+    </div>
+    
+
+    
+    
+      <script>
+         function toggleMenu() {
+        const nav = document.querySelector('.nav');
+        nav.classList.toggle('active');
+    }
+
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+    </script>
+    
+</body>
+</html>
