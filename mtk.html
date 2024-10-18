@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar Example</title>
+  <style>
+    body {
+      font-family: 'Sans-serif';
+      margin: 0;
+      padding: 0;
+    }
+    /* Navbar styling */
+    .navbar {
+      background-color: #f8f9fa;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+    }
+    .navbar-brand span {
+      font-weight: bold;
+      font-size: 1.2em;
+      white-space: nowrap; /* Prevents text wrapping */
+      overflow: hidden;
+      border-right: 2px solid; /* Typing cursor effect */
+      width: 0; /* Initially hidden */
+      animation: typing 3s steps(8) infinite, blink-caret 0.5s step-end infinite alternate;
+    }
+    .navbar-nav {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar-nav li {
+      margin-left: 20px;
+    }
+    .navbar-nav a {
+      text-decoration: none;
+      color: #000;
+      font-size: 1em;
+    }
+    .navbar-nav a:hover {
+      color: #007bff;
+    }
+
+    /* About section styling */
+    #about {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 20px;
+      padding: 50px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: center;
+    }
+    #about h1 {
+      grid-column: 1 / -1;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .profile-pic {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+    .profile-pic:hover {
+      transform: scale(1.05); /* Hover effect for profile image */
+    }
+    .about-text {
+      font-size: 1.1em;
+      line-height: 1.6;
+      color: #333;
+    }
+    .about-text p {
+      margin-bottom: 20px;
+    }
+    /* Button styling */
+    .about-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 1em;
+      transition: background-color 0.3s ease;
+    }
+    .about-btn:hover {
+      background-color: #0056b3;
+    }
+    /* Responsive styling */
+    @media (max-width: 768px) {
+      #about {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .about-text {
+        text-align: center;
+      }
+    }
+
+    /* untuk animasi ketiknya */
+    /* Animasi typing */
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+      to {
+        width: 13ch; /* Adjust the number of characters to match the text length */
+      }
+    }
+
+    /* Animasi blink */
+    @keyframes blink-caret {
+      from, to {
+        border-color: transparent;
+      }
+      50% {
+        border-color: black;
+      }
+    }
+
+    /* Code section styling */
+    #code-section {
+      background-color: #1e1e1e;
+      color: #dcdcdc;
+      padding: 30px;
+      border-radius: 8px;
+      max-width: 800px;
+      margin: 50px auto;
+      font-family: 'Courier New', monospace;
+      font-size: 1em;
+      line-height: 1.6;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      white-space: pre-wrap;
+      overflow: hidden;
+    }
+
+    /* Code cursor animation */
+    .code-cursor {
+      display: inline-block;
+      width: 1ch;
+      background-color: #dcdcdc;
+      margin-left: 2px;
+      animation: blink-cursor 0.75s step-end infinite;
+    }
+
+    @keyframes blink-cursor {
+      from, to {
+        background-color: transparent;
+      }
+      50% {
+        background-color: #dcdcdc;
+      }
+    }
+
+    /* Output section styling */
+    #output-section {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #f0f0f0;
+      border-left: 5px solid #007bff;
+      font-family: 'Courier New', monospace;
+      font-size: 1.1em;
+      color: #333;
+      opacity: 0; /* Initially hidden */
+      transition: opacity 1s ease-in-out; /* Smooth fade-in animation */
+    }
+
+    /* Soal section styling */
+    #soal {
+      padding: 50px 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      max-width: 800px;
+      margin: 30px auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    #soal h2 {
+      text-align: center;
+      font-size: 2.2em;
+      margin-bottom: 20px;
+      color: #007bff;
+    }
+    .soal-item {
+      background-color: #f9f9f9;
+      border-left: 5px solid #007bff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      opacity: 0; /* Initially hidden */
+      transform: translateY(50px) scale(0.95); /* Initial state for animation */
+      transition: all 0.5s ease-in-out;
+    }
+    .soal-item h3 {
+      margin: 0 0 10px;
+      font-size: 1.5em;
+      color: #333;
+    }
+    .soal-item p {
+      margin: 0;
+      color: #666;
+    }
+
+    /* Animation Keyframes */
+    .soal-item.show {
+      opacity: 1;
+      transform: translateY(0) scale(1); /* Final state for animation */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-brand">
+        <span>MTKZone</span>
+    </div>
+    <ul class="navbar-nav">
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#soal">Soal</a></li>
+      <li><a href="index.html">Home</a></li>
+    </ul>
+  </nav>
+
+  <section id="about">
+    <h1>Tentang Kami</h1>
+    <img src="foto veren3.png" alt="Profile Picture" class="profile-pic">
+    <div class="about-text">
+      <p>Veren Kelas IX A adalah seorang Senior Web Developer yang memiliki spesialisasi dalam pengembangan Front-End. Dengan pengalaman yang luas dalam membangun antarmuka pengguna yang menarik dan responsif, Veren memiliki kemampuan untuk menerjemahkan desain kreatif menjadi kode yang efisien dan fungsional.</p>
+      <p>Keahliannya mencakup penguasaan berbagai teknologi Front-End seperti HTML, CSS, JavaScript, dan berbagai framework. Veren juga berpengalaman dalam mengoptimalkan performa website sehingga memberikan pengalaman pengguna yang cepat dan mulus di berbagai perangkat.</p>
+    </div>
+  </section>
+
+  <!-- bagian soal untuk matematika -->
+  <section id="soal">
+    <h2>Soal</h2>
+    <div class="soal-item">
+      <h3>Soal 1</h3>
+      <p>Berapakah hasil dari 5 + 7?</p>
+    </div>
+    <div class="soal-item">
+      <h3>Soal 2</h3>
+      <p>Apa perbedaan antara var, let, dan const dalam JavaScript?</p>
+    </div>
+    <div class="soal-item">
+      <h3>Soal 3</h3>
+      <p>Tuliskan algoritma untuk menghitung faktorial dari sebuah bilangan.</p>
+    </div>
+  </section>
+
+  <!-- bagian kode -->
+  <section id="code-section">
+    <pre>
+    <code>
+    // Kode JavaScript sederhana
+    function hitungFaktorial(n) {
+        if (n === 0) {
+            return 1;
+        }
+        return n * hitungFaktorial(n - 1);
+    }
+    </code>
+    </pre>
+    <div class="code-cursor"></div>
+  </section>
+
+  <!-- bagian output -->
+  <section id="output-section">
+    <p>Hasil dari 5 + 7 adalah 12.</p>
+  </section>
+
+  <script>
+    // Menampilkan soal dengan animasi
+    const soalItems = document.querySelectorAll('.soal-item');
+    soalItems.forEach((item, index) => {
+      setTimeout(() => {
+        item.classList.add('show');
+      }, index * 300); // Delay setiap item
+    });
+
+    // Menampilkan output dengan animasi
+    const outputSection = document.getElementById('output-section');
+    setTimeout(() => {
+      outputSection.style.opacity = '1'; // Menampilkan output
+    }, 1500); // Delay 1.5 detik
+
+    // Menampilkan ketikan kode
+    const codeCursor = document.querySelector('.code-cursor');
+    const codeText = `// Kode JavaScript sederhana\nfunction hitungFaktorial(n) {\n    if (n === 0) {\n        return 1;\n    }\n    return n * hitungFaktorial(n - 1);\n}`;
+    let index = 0;
+
+    function type() {
+      if (index < codeText.length) {
+        document.querySelector('code').textContent += codeText[index];
+        index++;
+        setTimeout(type, 100); // Kecepatan ketik
+      } else {
+        codeCursor.style.display = 'none'; // Sembunyikan kursor setelah selesai
+      }
+    }
+    type();
+  </script>
+</body>
+</html>
